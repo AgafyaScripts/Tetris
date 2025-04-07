@@ -1,56 +1,54 @@
-# Textbaserad Tetris i C++
+Textbaserad Tetris i C++
 
-Det här programmet är en textbaserad version av det klassiska spelet Tetris. Det körs i terminalen och låter spelaren styra fallande tetrominos, rensa rader och samla poäng.
+Sammanfattning:
+Tetris är en serie av spel där det originella släpptes år 1985 av Alexey Pajitnov, en Soviets mjukvaruutvecklare. Det originella Tetris är detta projekt baserat på och spelet går i huvudsak ut på att sortera fallande block så att de täcker en hel rad av spelbrädet. Vid en full rad rensas den och poäng ges till spelaren. Tetris är ett av världens mest kända spel och trots dess ålder är spelet än idag relevant.
 
+Bakgrund:
+Projektet valdes p.ga den stora utmaning jag ansåg spelet skulle vara. Vilket jag ser som en fördel. Jag har fått träna på att konstruera spelbräden med hjälp av vektorer och for-loopar. Inmatning från spelaren är också ett huvudelement i spelet vilket har bidragit till mycket ny kunskap. Min felhanteringsfärdighet har definitivt utvecklats då i projektet filer både sparas och läses av. I vissa fall krävs till och med sortering av resultat i filerna vilket löstes med nya paket som går att importera till c++. Matematik krävdes också färdigheter vid fallen där tetrominos (ett block) ska roteras. Mer om det sen.
 
-Problemet som projektet löser är att det saknas enkla, textbaserade versioner av Tetris som både är spelbara och pedagogiska – särskilt i utbildningssyfte. Tetris är ett spel de flesta känner till, och att programmera det i C++ ger en bra övning i spelmekanik, logik, filhantering och användarinteraktion.
-Min personliga motivation för att välja detta projekt är att jag gillar programmering som kombinerar kreativitet med logiskt tänkande. Det är dessutom ett roligt sätt att öva på filhantering, vektorer och menyer i C++. Tetris är ett spel jag själv uppskattar, vilket gjorde det ännu roligare att skapa en egen version.
+Nyckelaspekter:
+Rotation: 
 
+Hur används programmet?
+Vid start möts du med en huvudmeny:
 
-Spara och ladda spel: Spelet kan sparas och laddas via textfiler, inklusive poäng, fallhastighet och brädets tillstånd.
-
-Highscore-system: Efter game over kan användaren spara sitt resultat, som sparas i en fil och visas i topplista.
-
-Färgkodning i terminalen: Olika färger visas beroende på tetrominotyp, vilket gör spelet mer visuellt trots att det är textbaserat.
-
-Användning av _kbhit() och _getch(): Möjliggör realtidskontroller utan att behöva trycka Enter.
-
-Meny med olika svårighetsgrader: Användaren kan välja mellan lätt, medel och svår.
-
-
-Programmet körs genom att kompilera och starta filen. När spelet startar visas en meny där man kan välja att spela, ändra svårighet, visa highscore, ladda ett sparat spel eller avsluta.
-När man spelar används piltangenterna:
-
-Vänsterpil för att flytta vänster
-
-Högerpil för att flytta höger
-
-Nedåtpil för att snabba på fallet
-
-Uppåtpil för att rotera tetrominon
-
-'p' för att pausa spelet
-
-Vid paus kan man spara spelet, återuppta det eller gå tillbaka till menyn. Om spelet avslutas (game over) får spelaren välja att spara poängen, gå till menyn eller avsluta helt.
+Här får du 5 olika val att välja mellan. 1 startar spelet. 2 låter användaren ändra svårighetsgrad, eller fallhastigheten. 3 visar highscore listan. 4 laddar ett sparat spel och 5 stänger av spelet.
 
 
 
-Kollisionssystemet är grundläggande och kan t.ex. inte hantera "wall kicks" vid rotation nära väggar.
-
-Spelet går bara att spela i terminalen på Windows (pga _kbhit() och _getch() från <conio.h>), vilket begränsar portabiliteten.
-
-Det finns ingen nivåökning (spelet blir inte svårare ju längre du spelar).
 
 
-För framtida utveckling skulle jag vilja:
 
-Lägga till nivåökning där spelet automatiskt ökar hastigheten efter ett visst antal rader.
+Vid start möts du av denna vy: ![alt text]
 
-Göra spelet mer portabelt genom att ersätta <conio.h> med plattformsoberoende lösningar.
+Här får du spela spelet med din valda svårighetsgrad. Poäng visaren ses uppe i högra hörnet. Du får 100 poäng per rad rensad. Använd piltangenterna för att styra. 
 
-Implementera mer avancerad rotation som tillåter väggstuds (wall kicks).
+‘⬆’ för rotera
+‘⬅’ vänster
+‘⮕’ höger
+‘⬇’  dubbla hastighet ner
+‘P’ pausa spelet
 
-Göra användargränssnittet ännu mer intuitivt, t.ex. genom att visa nästa tetromino.
 
-Skapa en enklare inställningsfil där spelaren kan justera kontroller och färger.
 
+Vid tryck av ‘P’ pausas spelet och du möts då av detta:
+
+Här kan du välja att spara spelet och återuppta det med samma värde, poäng och svårighetsgrad vid senare tillfälle. Du kan självklart också välja att gå tillbaka till menyn och fortsätta spela.
+
+
+
+
+Vid Game Over ser du detta:
+
+Du får här chansen att spara ditt resultat för att försöka nå topp 5 listan. Du kan också stänga av spelet eller gå tillbaka till menyn.
+
+
+
+
+
+
+Utmaningar:
+Spelet saknar förmågan att rotera vissa block nära väggarna. Kan fixas med det som kallas “Wall kicks”. I dagsläget kan man inte heller spara mer än ett spel (highscore kan du spara hur mycket som helst). Projektet är inte heller helt optimerat för alla enheter och skärmstorlekar/upplösningar. Den är i huvudsyfte byggd anpassad till min enhet och kan därav visas annorlunda på andra datorer. Detta går oftast att lösa genom att justera terminalfönstret på din enhet. 
+
+Vad härnäst?:
+Spelet kan utvecklas genom att implementera flera funktioner som finns i mer moderna tetris-spel. T.ex det som kallas ghost blocks. Där kan du se vart tetrominos skulle landa om du låter den falla snabbare. Det leder till den andra saken som kan göras. Snabbare fall eller direkta fall. 
